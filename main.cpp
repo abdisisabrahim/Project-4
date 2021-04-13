@@ -2,8 +2,8 @@
 #include "DelimiterStack.h"
 using namespace std;
 
-void CheckDelim(string, DelimiterStack&, int);
-
+void checkDelim(string, DelimiterStack&, int);
+void isStackEmpty( DelimiterStack&);
 
 int main() {
     char delimiter;
@@ -15,14 +15,14 @@ int main() {
         cout << "" << endl;
         getline(cin, input);
         line++;
-        CheckDelim(input, stack, line);
+        checkDelim(input, stack, line);
     } while (input != "DONE");
 
-
+    isStackEmpty(stack);
 
     return 0;
 }
-void CheckDelim(string input, DelimiterStack& stack, int line ){
+void checkDelim(string input, DelimiterStack& stack, int line){
     char c;
     int num;
     int count;
@@ -32,6 +32,7 @@ void CheckDelim(string input, DelimiterStack& stack, int line ){
             case '[':
             case '{':
                 stack.push(input[i], line, i+1);
+
                 break;
             case ')':
                 if (stack.isEmpty()){
@@ -76,5 +77,15 @@ void CheckDelim(string input, DelimiterStack& stack, int line ){
 
     }
 
-//
+}
+
+void isStackEmpty( DelimiterStack& stack){
+    char c;
+    int num;
+    int count;
+    while (!stack.isEmpty()){
+        stack.pop(c, num, count);
+        cout << "Left Delimiter " << c << " at line " << num << ", char " << count << " had no right delimiter" << endl;
+
+    }
 }
