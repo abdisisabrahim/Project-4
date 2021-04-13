@@ -9,8 +9,8 @@ int main() {
     int line =0;
     string input;
     DelimiterStack stack;
+    cout << "Enter your input below." << endl;
     do {
-        cout << "" << endl;
         getline(cin, input);
         line++;
         checkDelim(input, stack, line);
