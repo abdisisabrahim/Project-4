@@ -6,9 +6,7 @@ void checkDelim(string, DelimiterStack&, int);
 void isStackEmpty( DelimiterStack&);
 
 int main() {
-    char delimiter;
     int line =0;
-    int counter;
     string input;
     DelimiterStack stack;
     do {
