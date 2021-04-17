@@ -6,6 +6,7 @@
 #include <iostream>
 using namespace std;
 
+// This creates the stack
 DelimiterStack::~DelimiterStack() {
     DelimiterNode* nodePtr = nullptr, *nextNode = nullptr;
     nodePtr = top;
@@ -15,7 +16,7 @@ DelimiterStack::~DelimiterStack() {
         nodePtr = nextNode;
     }
 }
-
+// This function adds to the stack
 void DelimiterStack::push(char c, int linenumber, int charcount) {
     DelimiterNode* newNode = nullptr;
     newNode = new DelimiterNode;
@@ -31,7 +32,7 @@ void DelimiterStack::push(char c, int linenumber, int charcount) {
         top = newNode;
     }
 }
-
+// This function removes from the stack
 void DelimiterStack::pop(char &c, int &linenumber, int &charcount) {
     DelimiterNode* temp = nullptr;
     if (isEmpty()){
@@ -46,7 +47,7 @@ void DelimiterStack::pop(char &c, int &linenumber, int &charcount) {
         top = temp;
     }
 }
-
+// This functions checks if the stack is empty
 bool DelimiterStack::isEmpty() {
     bool status;
     if (!top){
